@@ -46,17 +46,20 @@
             android:singleLine="true"
             android:inputType="text"
             android:hint="학과를 입력해 주세요"
+            android:maxLength="20"
             android:layout_marginTop="8dp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"/>
 
         <TextView
+            android:id="@+id/user_major_valid_text_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="* 유효하지 않은 학과 입니다."
             android:textSize="12sp"
             android:textColor="@color/red1"
-            android:layout_marginTop="2dp" />
+            android:layout_marginTop="2dp"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/user_id_text_tv"
@@ -77,17 +80,20 @@
             android:textSize="16sp"
             android:inputType="number"
             android:hint="학번을 입력해 주세요"
+            android:maxLength="9"
             android:layout_marginTop="8dp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"/>
 
         <TextView
+            android:id="@+id/user_id_valid_text_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="* 유효하지 않은 학번 입니다."
             android:textSize="12sp"
             android:textColor="@color/red1"
-            android:layout_marginTop="2dp"/>
+            android:layout_marginTop="2dp"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/user_name_text_tv"
@@ -110,6 +116,7 @@
             android:singleLine="true"
             android:inputType="text"
             android:hint="이름을 입력해 주세요"
+            android:maxLength="8"
             android:layout_marginTop="8dp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"/>

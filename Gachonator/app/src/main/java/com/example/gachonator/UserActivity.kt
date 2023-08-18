@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import com.example.gachonator.databinding.ActivityUserBinding
+import java.time.LocalDate
 
 class UserActivity : AppCompatActivity() {
     lateinit var binding: ActivityUserBinding
@@ -50,12 +51,33 @@ class UserActivity : AppCompatActivity() {
                 Log.d("major stdId name", major + " " + stdId + " " + name)
 
                 // 세개 다 입력값 있으면 버튼 활성화
-                if (isValidMajor() && isValidId() && name!=""){
+                if (isValidMajor() && isValidId() && name!=""){ // 활성화
+                    binding.userMajorValidTextTv.visibility = View.INVISIBLE
+                    binding.userIdValidTextTv.visibility = View.INVISIBLE
                     binding.userNextBtnOffTv.visibility = View.GONE
                     binding.userNextBtnOnTv.visibility = View.VISIBLE
+                    Log.d("Validity", "Valid")
                 } else {
+                    binding.userMajorValidTextTv.visibility = View.INVISIBLE
+                    binding.userIdValidTextTv.visibility = View.INVISIBLE
                     binding.userNextBtnOffTv.visibility = View.VISIBLE
                     binding.userNextBtnOnTv.visibility = View.GONE
+
+                    if (major != "" && !isValidMajor()){
+                        binding.userMajorValidTextTv.visibility = View.VISIBLE
+                        Log.d("major Validity", "inValid")
+                    } else{
+                        binding.userMajorValidTextTv.visibility = View.INVISIBLE
+                        Log.d("major Validity", "major empty")
+                    }
+
+                    if (stdId != "" && !isValidId()){
+                        binding.userIdValidTextTv.visibility = View.VISIBLE
+                        Log.d("id Validity", "inValid")
+                    } else{
+                        binding.userIdValidTextTv.visibility = View.INVISIBLE
+                        Log.d("id Validity", "id empty")
+                    }
                 }
             }
 
@@ -92,9 +114,16 @@ class UserActivity : AppCompatActivity() {
 
         val userInput = binding.userMajorEnterEt.text.toString()
 
-        return regexFirst.matches(userInput) || regexSecond.matches(userInput) || userInput.length in 3..20
+        return regexFirst.matches(userInput) || regexSecond.matches(userInput) && userInput.length in 3..20
     }
     private fun isValidId(): Boolean {
-        return binding.userIdEnterEt.text.toString().matches(Regex("^[0-9]{9}$"))
+        val userInput = binding.userIdEnterEt.text.toString()
+        var year = true
+
+        if (userInput.length == 9 && userInput.substring(0 until 4).toInt() > LocalDate.now().year){
+            year = false
+        }
+
+        return year && userInput.matches(Regex("^[0-9]{9}$"))
     }
 }
