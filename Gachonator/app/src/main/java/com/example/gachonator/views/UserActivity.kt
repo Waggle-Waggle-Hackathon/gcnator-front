@@ -1,4 +1,4 @@
-package com.example.gachonator
+package com.example.gachonator.views
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import com.example.gachonator.ApiService
+import com.example.gachonator.MyApplication
 import com.example.gachonator.databinding.ActivityUserBinding
 import java.time.LocalDate
 
@@ -26,7 +28,6 @@ class UserActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-
         class myTextWatcher(var id: Int) : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
@@ -104,6 +105,7 @@ class UserActivity : AppCompatActivity() {
         binding.userNextBtnOnTv.setOnClickListener {
 
             /** 서버에 결과 전송 */
+            val apiService = MyApplication.instance.sRetrofit.create(ApiService::class.java)
 
             startActivity(Intent(this, QuestionActivity::class.java))
         }
