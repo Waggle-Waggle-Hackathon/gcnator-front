@@ -1,4 +1,4 @@
-package com.example.gachonator
+package com.example.gachonator.views
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.FileProvider
 import com.example.gachonator.databinding.ActivityResultBinding
-import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 
