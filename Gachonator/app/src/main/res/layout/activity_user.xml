@@ -42,6 +42,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/style_enterfield"
             android:textSize="16sp"
+            android:maxLines="1"
+            android:singleLine="true"
             android:hint="학과를 입력해 주세요"
             android:layout_marginTop="8dp"
             android:paddingHorizontal="16dp"
@@ -64,6 +66,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/style_enterfield"
             android:textSize="16sp"
+            android:inputType="number"
             android:hint="학번을 입력해 주세요"
             android:layout_marginTop="8dp"
             android:paddingHorizontal="16dp"
@@ -86,6 +89,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/style_enterfield"
             android:textSize="16sp"
+            android:maxLines="1"
+            android:singleLine="true"
             android:hint="이름을 입력해 주세요"
             android:layout_marginTop="8dp"
             android:paddingHorizontal="16dp"
@@ -94,10 +99,10 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/user_next_btn_tv"
+        android:id="@+id/user_next_btn_on_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/style_bt_start"
+        android:background="@drawable/style_btn_on"
         android:text="다음"
         android:textStyle="bold"
         android:textColor="@color/white"
@@ -107,6 +112,24 @@
         android:paddingVertical="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_content_ll"/>
+        app:layout_constraintTop_toBottomOf="@+id/user_content_ll"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/user_next_btn_off_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/style_btn_off"
+        android:text="다음"
+        android:textStyle="bold"
+        android:textColor="@color/red1"
+        android:textSize="20sp"
+        android:layout_marginTop="40dp"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_content_ll"
+        android:visibility="visible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
