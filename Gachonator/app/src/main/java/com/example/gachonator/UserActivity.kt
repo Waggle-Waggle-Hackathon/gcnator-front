@@ -50,7 +50,7 @@ class UserActivity : AppCompatActivity() {
                 Log.d("major stdId name", major + " " + stdId + " " + name)
 
                 // 세개 다 입력값 있으면 버튼 활성화
-                if (major!="" && stdId!="" && name!=""){
+                if (isValidMajor() && isValidId() && name!=""){
                     binding.userNextBtnOffTv.visibility = View.GONE
                     binding.userNextBtnOnTv.visibility = View.VISIBLE
                 } else {
@@ -85,5 +85,16 @@ class UserActivity : AppCompatActivity() {
 
             startActivity(Intent(this, QuestionActivity::class.java))
         }
+    }
+    private fun isValidMajor() : Boolean{
+        val regexFirst = ".*학과$".toRegex()
+        val regexSecond = ".*학부$".toRegex()
+
+        val userInput = binding.userMajorEnterEt.text.toString()
+
+        return regexFirst.matches(userInput) || regexSecond.matches(userInput) || userInput.length in 3..20
+    }
+    private fun isValidId(): Boolean {
+        return binding.userIdEnterEt.text.toString().matches(Regex("^[0-9]{9}$"))
     }
 }
