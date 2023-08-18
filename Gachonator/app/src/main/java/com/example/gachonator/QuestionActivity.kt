@@ -1,5 +1,6 @@
 package com.example.gachonator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.gachonator.databinding.ActivityQuestionBinding
@@ -13,6 +14,8 @@ class QuestionActivity : AppCompatActivity() {
         initListener()
     }
     private fun initListener() {
-        binding
+        binding.dontKnowBtnTv.setOnClickListener {
+            startActivity(Intent(this, ResultActivity::class.java))
+        }
     }
 }

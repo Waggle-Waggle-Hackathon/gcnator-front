@@ -42,7 +42,7 @@
             android:id="@+id/result_desc_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/result"
+            android:text=""
             android:textSize="15sp" />
     </ScrollView>
 
@@ -55,7 +55,7 @@
         android:textColor="@color/white"
         android:layout_marginBottom="24dp"
         android:gravity="center"
-        android:background="@drawable/style_bt_start"
+        android:background="@drawable/style_btn_on"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginHorizontal="26dp"
