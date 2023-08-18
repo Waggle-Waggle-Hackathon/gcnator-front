@@ -3,20 +3,20 @@ package com.example.gachonator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.gachonator.databinding.ActivityMainBinding
+import com.example.gachonator.databinding.ActivityUserBinding
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class UserActivity : AppCompatActivity() {
+    lateinit var binding: ActivityUserBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initListener()
     }
     private fun initListener() {
-        binding.startBtnTv.setOnClickListener {
-            startActivity(Intent(this, UserActivity::class.java))
+        binding.userNextBtnTv.setOnClickListener {
+            startActivity(Intent(this, QuestionActivity::class.java))
         }
     }
 }
